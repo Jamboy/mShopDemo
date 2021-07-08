@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Jamboy
  * @Date: 2021-02-22 09:47:12
- * @LastEditTime: 2021-02-25 14:14:36
+ * @LastEditTime: 2021-07-08 17:12:26
  */
 const ApiBaseUrl = 'http://106.53.83.193:9888/' //云端DRP测试api
 const ApiRootUrl = 'http://81.71.123.32:8360/api/' //云端商城测试api
@@ -10,6 +10,7 @@ const ApiRootUrl = 'http://81.71.123.32:8360/api/' //云端商城测试api
 // const ApiMockUrl = 'https://1f97354c-56e2-4403-a9e8-362717d86909.mock.pstmn.io/' //postman mock api
 const ApiMockUrl = 'https://www.fastmock.site/mock/2d5df602052fc8893187ea019434e037/api/' //postman mock api
 const config = {
+    apiBaseUrl:'http://localhost:8082/v1/',
     ApiBaseUrl: ApiBaseUrl,
     LocalShopUrl: ApiRootUrl,
     UserInfo: ApiBaseUrl + 'admin/acl/info',
