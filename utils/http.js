@@ -2,7 +2,7 @@
  * @Description: 网络请求封装
  * @Author: Jamboy
  * @Date: 2021-02-22 15:51:07
- * @LastEditTime: 2021-06-17 12:02:30
+ * @LastEditTime: 2021-07-08 17:20:15
  */
 // token -> GDDZ_DRP_TOKEN
 // 用户权限：身份信息
@@ -16,6 +16,7 @@
 // 未授权                    401
 // token失效                 403
 // 未找到                    404
+import {config} from '../config/config'
 import { codes } from '../config/exception-config.js'
 import { HttpException } from '../core/http-exception.js'
 import { Token } from '../models/token.js'
@@ -33,13 +34,11 @@ class Http {
     let res
     try {
       res = await promisic(wx.request)({
-        // url: `${config.ApiBaseUrl}${url}`,
-        url: `${url}`,
+        url: `${config.apiBaseUrl}${url}`,
         data,
         method,
         header: {
           'content-type': 'application/json',
-          //   GDDZ_DRP_TOKEN: `${wx.getStorageSync('token')}`, //携带后台所需token
         },
       })
     } catch (e) {
