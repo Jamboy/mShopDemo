@@ -1,0 +1,104 @@
+/* pages/search/search.wxss */
+/*搜索界面*/
+page {
+    background-color: #fff;
+}
+
+.header {
+    border-bottom: 1px solid #f3f3f3;
+    padding-bottom: 14rpx;
+    width: 750rpx;
+    top: 0;
+    position: fixed;
+    z-index: 77;
+    background-color: #fff;
+
+}
+
+.container {
+    padding-top: 50rpx;
+    /*margin-top: 70rpx;*/
+}
+
+
+.input {
+    border-radius: 0 !important;
+}
+
+.history-container {
+    margin: 40rpx 0 40rpx 0;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 38rpx;
+}
+
+.slide {
+    width: 4rpx;
+    background-color: #157658;
+    height: 40rpx;
+}
+
+.title text {
+    margin-left: 30rpx;
+}
+
+.delete {
+    width: 80rpx;
+    margin-left: auto !important;
+    display: flex;
+    justify-content: center;
+}
+
+
+.history-tags {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+    flex-wrap: wrap;
+}
+
+.tag-class {
+    background-color: #f3f3f3 !important;
+    color: #666666 !important;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.tag-selected {
+    background-color: #DCEBE6 !important;
+    color: #157658 !important;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.hot-search {
+
+}
+
+.hot-search text {
+    margin-left: 30rpx;
+}
+
+.empty {
+    padding: 30rpx 20rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-res {
+    padding: 30rpx 20rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

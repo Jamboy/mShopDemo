@@ -1,0 +1,8 @@
+<wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="str"></wxs>
+
+<view data-pid="{{data.id}}" class="container" bind:tap="onDetailTap">
+    <image bind:load="onImgLoad" style="width:{{w}}rpx; height:{{h}}rpx" src="{{data.list_pic_url}}"></image>
+    <text class="title">{{data.name.length > 10 ? str.substring(data.name,0,9)+'...' : data.name}}</text>
+    <l-price value="{{data.retail_price}}" color="red"></l-price>
+    <text class="detail">{{data.name}}{{data.name}}</text>
+</view>

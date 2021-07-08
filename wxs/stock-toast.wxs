@@ -1,0 +1,17 @@
+function stockToast(stock) {
+    if (stock <= 4) {
+        return {
+            toast: "库存: 仅剩" + stock + "件  " + "库存不足",
+            style: "warning"
+        }
+    } else {
+        return {
+            toast: "库存: " + stock + "件",
+            style: "stock"
+        }
+    }
+}
+
+module.exports = {
+    stockToast: stockToast
+}

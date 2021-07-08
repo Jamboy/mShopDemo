@@ -1,0 +1,16 @@
+<!--components/sub-catalog/index.wxml-->
+        <!--二级目录-->
+
+<view class="container">
+    <image wx:if="{{bannerUrl}}" mode="aspectFill" class="banner-img" src="{{bannerUrl}}"></image>
+    <text class="title"> - 全部分类 -</text>
+    <l-grid class="inner-container">
+        <block wx:for="{{subCatalogList}}" wx:key="index">
+            <l-grid-item bind:linitemtap="onItemTap" class="grid-item" key="{{item.id}}" slot="{{item.id}}">
+                <image src="{{item.banner_url}}"></image>
+                <text>{{item.name}}</text>
+            </l-grid-item>
+        </block>
+    </l-grid>
+</view>
+

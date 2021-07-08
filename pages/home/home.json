@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "udf-spu-scroll": "/components/spu-scroll/index",
+    "udf-spu-topic": "/components/spu-topic/index",
+    "udf-brand-list": "/components/brand-list/index"
+  }
+}

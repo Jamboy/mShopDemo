@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "udf-cell": "/components/cell/index"
+    }
+}

@@ -1,0 +1,58 @@
+/* components/spu-spec/index.wxss */
+/*规格选择*/
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.pre-container {
+    display: flex;
+    flex-direction: row
+}
+
+.img {
+    width: 160rpx;
+    height: 160rpx;
+    border: 1px solid red;
+}
+
+/*价格 库存 容器*/
+.ps-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rpx;
+    justify-content: flex-end;
+}
+
+.color-container {
+    display: flex;
+    flex-direction: row
+}
+
+.color-item {
+    border: 1px solid green;
+    margin-right: 10rpx;
+}
+
+.spec-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.spec-item {
+    border: 1px solid green;
+    margin-right: 20rpx;
+}
+
+.goods-sn {
+    border: 1px solid green;
+    margin-right: 20rpx;
+}
+
+
+
+
+
+
+
+

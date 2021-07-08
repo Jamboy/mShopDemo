@@ -1,0 +1,38 @@
+.container {
+  height: 360rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+/* grid布局 */
+.innner-container {
+  width: 730rpx;
+  height: 340rpx;
+  border: 1px dashed #808381;
+
+}
+
+/* grid item布局 */
+.grid-item {
+    width: 100rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 图标 */
+.grid-icon-img {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/* 图标下文本 */
+.grid-text {
+    margin-top: 6rpx;
+    font-size: 24rpx;
+    color: #333333;
+
+}

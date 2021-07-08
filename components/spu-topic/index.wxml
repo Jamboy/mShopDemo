@@ -1,0 +1,10 @@
+<wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="string"></wxs>
+
+<view class="topidD-container">
+    <image class="topidD-img" src="{{topicD.item_pic_url}}"></image>
+    <view>
+        <text class="topidD-title">{{topicD.title}}</text>
+        <l-price value="{{topicD.price_info}}元起" color="#FF0000"></l-price>
+    </view>
+    <text class="topidD-subtitle">{{topicD.subtitle.length> 14 ? string.substring(topicD.subtitle,0,14)+'...' : topicD.subtitle}}</text>
+</view>

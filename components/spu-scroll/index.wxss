@@ -1,0 +1,49 @@
+.new-container {
+  width: 100%;
+  height: 100rpx;
+  padding: 10rpx;
+  border-bottom: 1px dashed #dbe5e6;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.more {
+  float: right;
+}
+
+.scroll-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 320rpx;
+}
+
+/* scroll item view 布局 */
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* 商品标题 */
+.goods-title {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 商品图片 */
+.img {
+  width: 300rpx;
+  height: 260rpx;
+}
+/* 价格 */
+.price {
+  color: #ff0000;
+}
+
+

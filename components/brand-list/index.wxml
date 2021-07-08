@@ -1,0 +1,10 @@
+<view class="container">
+    <text class="title">品牌制造商直供</text>
+    <view class="inner-container">
+        <udf-brand-item udf-class="left" brandInfo="{{left}}"></udf-brand-item>
+        <view class="right-container">
+            <udf-brand-item udf-class="right-size right-margin-bottom" brandInfo="{{rightTop}}"></udf-brand-item>
+            <udf-brand-item udf-class="right-size" brandInfo="{{rightBottom}}"></udf-brand-item>
+        </view>
+    </view>
+</view>

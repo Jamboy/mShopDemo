@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "udf-fence": "/components/fence/index"
+  }
+}

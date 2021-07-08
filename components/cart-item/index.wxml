@@ -1,0 +1,31 @@
+<view slot="left" class="container">
+		<view class="checkbox">
+				<u-checkbox checked="{{cartItem.checked}}" />
+		</view>
+		<view class="sku-container">
+				<view class="image-container">
+						<view wx:if="{{!onLine}}" class="image-sold-out">
+								<text>下架</text>
+						</view>
+						<view wx:elif="{{soldOut}}" class="image-sold-out">
+								<text>售罄</text>
+						</view>
+						<view wx:elif="{{s.shortage(cartItem.sku.stock)}}" class="image-stock-pinch">
+								<text>仅剩{{cartItem.sku.stock}}</text>
+						</view>
+						<image mode="aspectFill" class="left" src="{{cartItem.sku.img}}" />
+				</view>
+				<view class="right {{soldOut ? 'disabled' : ''}}">
+						<view class="description-container">
+								<view class="title-container">
+										<l-tag wx:if="{{discount}}" l-class="discount-tag" size="mini" bg-color="#c93756" shape="circle" type="reading" height="24">
+												打折
+										</l-tag>
+										<text class="title">{{cartItem.sku.title}}</text>
+								</view>
+								<view class="spec"></view>
+						</view>
+						<view class="price-container"></view>
+				</view>
+		</view>
+</view>

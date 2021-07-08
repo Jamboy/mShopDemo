@@ -1,0 +1,15 @@
+<wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="string"></wxs>
+<view class="new-container">
+    <text class="title udf-class" >每周·上新</text>
+    <text>Buy</text>
+    <text class="more">查看更多</text>
+</view>
+<scroll-view class="scroll-container" scroll-x="{{true}}" enable-flex="{{true}}">
+    <block wx:for="{{newGoodList}}" wx:key="index">
+        <view class="inner-container">
+            <image class="img" src="{{item.list_pic_url}}"/>
+            <text class="goods-title">{{item.name.length >= 8 ? string.substring(item.name,0,8) : item.name}}</text>
+            <l-price value="{{item.retail_price}}" unit-color="#ff0000" value-color="#ff0000"></l-price>
+        </view>
+    </block>
+</scroll-view>

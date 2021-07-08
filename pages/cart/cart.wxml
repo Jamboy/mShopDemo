@@ -1,0 +1,6 @@
+<!-- pages/cart/cart.wxml -->
+<view wx:if="{{!isEmpty}}" class="container">
+  <block wx:for="{{cartItems}}" wx:key="index">
+    <u-cart-item />
+  </block>
+</view>

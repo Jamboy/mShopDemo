@@ -1,0 +1,42 @@
+.container {
+    border: 2rpx solid #333;
+    padding: 2rpx;
+    height: 60rpx;
+    box-sizing: border-box;
+}
+
+.inner-container {
+    height: 100%;
+    padding-left: 15rpx;
+    padding-right: 15rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+/*禁用*/
+.forbidden {
+    border: 2rpx dashed #bbbbbb;
+    color: #bbbbbb;
+}
+
+/*选中外边框*/
+.s-outer {
+    border: 2rpx solid #157658;
+    color: #fff;
+}
+
+.s-inner {
+    background-color: #157658;
+}
+
+.selected {
+
+}
+
+.img {
+    padding-right: 10rpx;
+    width: 30rpx;
+    height: 30rpx;
+}

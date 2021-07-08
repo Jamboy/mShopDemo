@@ -1,0 +1,18 @@
+<!--components/spu-description/index.wxml-->
+<view class="container">
+    <view class="left">
+        <text class="title">{{info.title}}</text>
+        <text class="sub-title">{{info.subtitle}}</text>
+        <l-price value="{{info.price}}" color="red" size="34"></l-price>
+    </view>
+
+    <view class="right">
+        <l-button special="{{true}}" openType="share">
+            <view class="share-container">
+                <l-icon color="#157658" name="share" size="24"></l-icon>
+                <text>分</text>
+                <text>享</text>
+            </view>
+        </l-button>
+    </view>
+</view>

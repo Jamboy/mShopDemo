@@ -1,0 +1,30 @@
+/*商品补充说明*/
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 30rpx;
+}
+
+.container > text {
+    color: #666;
+    margin-bottom: 12rpx;
+    border-bottom: 2rpx solid #E5E5E5;
+}
+
+.container > text:before {
+    content: '•';
+    margin-right: 20rpx;
+}
+
+.container > view {
+    color: #999;
+    margin-bottom: 12rpx;
+    border-bottom: 2rpx solid #E5E5E5;
+}
+
+.container > view:before {
+    content: '·';
+    margin-right: 20rpx;
+}
+

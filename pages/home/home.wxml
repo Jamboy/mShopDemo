@@ -1,0 +1,26 @@
+<!-- pages/home/home.wxml -->
+<l-load-more show type="{{loadingType}}" end-text=" -没有更多数据-">
+    <view class="container" slot="content">
+        <view class="banner-container">
+            <image bind:load="onImgLoad" class="themeA" src="{{themeA.image_url}}"></image>
+        </view>
+        <view>
+            <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}">
+                <block wx:for="{{bannersB}}" wx:key="index">
+                    <swiper-item>
+                        <image class="swiper" src="{{item.image_url}}"/>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <udf-category-grid grid="{{gridCategory}}"></udf-category-grid>
+        <udf-spu-scroll udf-class="udf-title" newGoodList="{{newGoodList}}"></udf-spu-scroll>
+        <udf-spu-topic topicD="{{topicD}}"></udf-spu-topic>
+        <udf-brand-list brand="{{brandList}}"></udf-brand-list>
+        <udf-spu-topic topicD="{{topicF}}"></udf-spu-topic>
+        <view class="spu-bottom-container">
+            <text class="bottom-title">热卖·榜单</text>
+            <l-water-flow generic:l-water-flow-item="udf-spu-preview"/>
+        </view>
+    </view>
+</l-load-more>

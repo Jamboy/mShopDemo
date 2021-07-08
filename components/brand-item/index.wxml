@@ -1,0 +1,7 @@
+<view class="container" hover-class="rect-hover" hover-stay-time="{{200}}">
+    <image class="img udf-class" src="{{brandInfo.new_pic_url}}"></image>
+    <view class="inner-container">
+        <text class="name">{{brandInfo.name}}</text>
+        <text class="price"> | {{brandInfo.floor_price}}元起</text>
+    </view>
+</view>

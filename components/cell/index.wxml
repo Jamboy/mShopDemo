@@ -1,0 +1,8 @@
+<!--components/cell/index.wxml-->
+<wxs src="../../wxs/cell-status.wxs" module="cs"></wxs>
+<view bind:tap="onTap" class="container {{cs.statusStyle(cell.status).outer}}">
+    <view class="inner-container {{cs.statusStyle(cell.status).inner}}">
+        <image class="img" src="{{cell.skuImg}}" wx:if="{{cell.skuImg}}" mode="aspectFit"></image>
+        <text>{{cell.title}}</text>
+    </view>
+</view>

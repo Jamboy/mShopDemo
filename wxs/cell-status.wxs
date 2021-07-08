@@ -1,0 +1,44 @@
+/**
+ * @name: cell-status
+ * @author: Kivia
+ * @date: 2021-03-04 11:16
+ * @description：cell-status 根据status return style name
+ * @update: 2021-03-04 11:16
+ */
+
+// function statusStyle(status) {
+//     if (status === 'forbidden') {
+//         return {
+//             outer: 'forbidden',
+//             inner: ''
+//         }
+//     }
+//
+//     if (status === 'selected') {
+//         return {
+//             outer: 's-outer',
+//             inner: 's-inner'
+//
+//         }
+//     }
+// }
+
+function statusStyle(status) {
+    switch (status){
+        case 'selected':
+            return {
+                outer: 's-outer',
+                inner: 's-inner'
+            }
+        case 'forbidden':
+            return {
+                outer: 'forbidden',
+                inner: ''
+            }
+    }
+}
+
+
+module.exports = {
+    statusStyle: statusStyle
+}

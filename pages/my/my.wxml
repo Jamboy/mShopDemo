@@ -1,0 +1,3 @@
+<!--pages/my/my.wxml-->
+<text >用户姓名：</text>
+<text>{{realName}}</text>

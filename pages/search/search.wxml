@@ -1,0 +1,66 @@
+<!--pages/search/search.wxml-->
+        <!--搜索界面-->
+
+<view class="header">
+    <l-search-bar
+            bind:linconfirm="onSearch"
+            bind:lincancel="onCancel"
+            l-class="input"
+            bg-color="#f1f1f1"
+            placeholder="请输入商品名称">
+    </l-search-bar>
+</view>
+
+<view class="container">
+    <view wx:if="{{!searchStatue}}">
+        <view wx:if="{{historyTags.length !== 0}}" class="history-container">
+            <view class="title">
+                <view class="slide"></view>
+                <text>历史搜索</text>
+                <view class="delete" bind:tap="onClearHotList">
+                    <l-icon name="clear" l-class="jambo" color="#999"></l-icon>
+                </view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{historyTags}}" wx:key="index">
+                    <l-tag bind:lintap="onSearch" name="{{item}}" l-class="tag-class" shape="circle"
+                           font-color="#999" plain>{{item}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+
+        <view class="history-container">
+            <view class="title">
+                <view class="slide"></view>
+                <text>热门搜索</text>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="index">
+                    <l-tag bind:lintap="onSearch" l-class="tag-class" select="{{item.is_hot == 1}}"
+                           l-select-class="tag-selected"
+                           name="{{item.keyword}}" shape="circle">
+                        {{item.keyword}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="empty" wx:if="{{searchRes.empty}}">
+            没有数据
+        </view>
+
+        <view wx:else>
+            <l-load-more show end-text="-没有更多数据-" type="{{loadingType}}" loadingText="努力加载中...">
+                <view slot="content" class="search-res">
+                    <block wx:for="{{searchRes.accumulator}}">
+                        <u-spu-preview-rule data="{{item}}"></u-spu-preview-rule>
+                    </block>
+                </view>
+            </l-load-more>
+        </view>
+    </view>
+
+    <l-loading></l-loading>
+</view>

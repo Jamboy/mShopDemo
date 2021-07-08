@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "udf-brand-item": "/components/brand-item/index"
+  }
+}

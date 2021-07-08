@@ -1,0 +1,36 @@
+<!--components/spu-spec/index.wxml 规格-->
+<view class="container">
+    <view class="pre-container">
+        <image class="img" src="{{colorList[0].pic_url}}"></image>
+        <view class="ps-container">
+            <l-price value="{{typeList[0].retail_price}}"></l-price>
+            <text>库存：{{typeList[0].goods_number}}件</text>
+        </view>
+    </view>
+    <view>
+        <text>颜色</text>
+
+        <view class="color-container">
+
+            <block wx:for="{{colorList}}">
+                <text class="color-item">{{item.value}}</text>
+            </block>
+        </view>
+    </view>
+    <view>
+        <text>规格</text>
+        <view class="spec-container">
+            <block wx:for="{{specList}}">
+                <text class="spec-item">{{item.value}}</text>
+            </block>
+        </view>
+    </view>
+
+    <view>
+        <text>类型</text>
+        <block wx:for="{{typeList}}">
+            <text class="goods-sn">{{item.goods_sn}}</text>
+        </block>
+    </view>
+
+</view>

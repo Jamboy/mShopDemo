@@ -1,0 +1,69 @@
+<!-- pages/detail/detail.wxml -->
+<scroll-view
+ style="height:{{scrollViewHeight}}rpx"
+ scroll-y
+>
+	<swiper
+	 class="swiper-container"
+	 indicator-dots
+	 autoplay
+	>
+		<block
+		 wx:for="{{gallery}}"
+		 wx:key="index"
+		>
+			<swiper-item>
+				<image
+				 class="img"
+				 mode="aspectFill"
+				 src="{{item.img_url}}"
+				/>
+			</swiper-item>
+		</block>
+	</swiper>
+	<!-- spu描述 -->
+	<udf-spu-description info="{{desc}}" />
+	<!-- sku 选择toast -->
+	<view
+	 wx:if="{{!spec.noSpec}}"
+	 class="sku-pending"
+	 bind:tap="onAddToCart"
+	>
+		<view class="specs">
+			<text wx:if="{{spec.isSkuIntact}}">已选择：</text>
+			<text wx:else>请选择：</text>
+			<text wx:if="{{spec.isSkuIntact}}">{{spec.selectedSku}}</text>
+			<text wx:else>{{spec.waitingFence}}</text>
+		</view>
+		<view class="right-icon">
+			<l-icon
+			 name="right"
+			 size="24"
+			 color="#155876"
+			/>
+		</view>
+	</view>
+	<!-- <udf-spu-spec list="{{spuSpecDataList}}"></udf-spu-spec> -->
+	<u-sale-explain texts="{{issue}}" />
+</scroll-view>
+<!-- sku选择 -->
+<l-popup
+ show="{{showRealm}}"
+ content-align="bottom"
+>
+	<udf-realm
+	 spu="{{spu}}"
+	 orderWay="{{orderWay}}"
+	 bind:onSpecChange="onSpecChange"
+	 bind:shopping="onShopping"
+	/>
+</l-popup>
+<!-- 底部tab栏 -->
+<u-tab-bar
+ class="tab-bar"
+ bind:gotohome="onGoToHome"
+ bind:gotocart="onGoToCart"
+ bind:addtocart="onAddToCart"
+ bind:buy="onBuy"
+/>
+

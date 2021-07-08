@@ -1,0 +1,76 @@
+/* pages/home/home.wxss */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-container {
+    width: 100%;
+    position: relative;
+}
+
+.themeA {
+    width: 100%;
+    height: 300rpx;
+    filter: blur(0px);
+}
+
+.details-container {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    /* left: 50%; */
+    /* top: 50%; */
+}
+
+.details-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: absolute; */
+
+    /* justify-content: center; */
+}
+
+.title {
+    font-size: 40rpx;
+    color: #333;
+}
+
+.subTitle {
+    font-size: 30rpx;
+    color: gray;
+}
+
+.priceInfo {
+    color: red;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.swiper {
+    width: 100%;
+    height: 360rpx;
+}
+
+.grid-icon-img {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.udf-title {
+    color: #ff0000;
+}
+
+.spu-bottom-container{
+    /*width: 100%;*/
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.bottom-title{
+    text-align: center;
+    height: 90rpx;
+}
+/*第四章专题图片*/

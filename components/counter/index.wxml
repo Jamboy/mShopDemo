@@ -1,0 +1,8 @@
+<!--components/counter/index.wxml-->
+<l-counter l-count-class="all-background input-size"
+           l-symbol-class="all-background font-color"
+           l-disabled-class="all-background"
+           l-class="container"
+           min="{{min}}" max="{{max}}" count="{{count}}"
+           bind:linout="onOverStep"
+></l-counter>
