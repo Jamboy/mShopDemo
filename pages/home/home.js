@@ -31,8 +31,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad(options) {
-        this.initAllData()
-        // this.initBottomSpuList()
+        // this.initAllData()
+        this.initBottomSpuList()
     },
 
     /**
@@ -66,7 +66,7 @@ Page({
      * @returns {Promise<void>}
      */
     async initBottomSpuList() {
-        const spuPaging = SpuPaging.getSpuPaging() //获取spuPaging对象
+        const spuPaging = SpuPaging.getLatestPaging() //获取spuPaging对象
         this.data.spuPaging = spuPaging //保存spuPaging对象
         const spuList = await spuPaging.getMoreData() //调用paging对象获取数据
         console.log("-------------->开始初始加载spu begin:----------->")
