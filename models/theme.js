@@ -2,7 +2,7 @@
  * @Description: 获取首页及各位置的数据
  * @Author: Jamboy
  * @Date: 2021-07-08 17:02:13
- * @LastEditTime: 2021-07-08 17:15:27
+ * @LastEditTime: 2021-07-09 13:36:13
  */
 
 import { config } from '../config/config'
@@ -16,7 +16,7 @@ class Theme {
    * @param {*}
    * @return {*}
    */
-  async getHomeData() {
+  async getThemes() {
     const res = await Http.request({
       url: `theme/by/names`,
     })
