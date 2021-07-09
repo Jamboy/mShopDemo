@@ -2,21 +2,9 @@
  * @Description: 网络请求封装
  * @Author: Jamboy
  * @Date: 2021-02-22 15:51:07
- * @LastEditTime: 2021-07-08 17:20:15
+ * @LastEditTime: 2021-07-09 15:07:08
  */
-// token -> GDDZ_DRP_TOKEN
-// 用户权限：身份信息
-// 鼎泽管理员           91
-// 鼎泽                9
-// 本公司管理员         11
-// 本公司人员           1
-// 客户                 2
-// 成功                      200
-// 失败                      400
-// 未授权                    401
-// token失效                 403
-// 未找到                    404
-import {config} from '../config/config'
+import { config } from '../config/config'
 import { codes } from '../config/exception-config.js'
 import { HttpException } from '../core/http-exception.js'
 import { Token } from '../models/token.js'
@@ -39,6 +27,7 @@ class Http {
         method,
         header: {
           'content-type': 'application/json',
+          'authorization': `Bearer ${wx.getStorageSync('token')}`
         },
       })
     } catch (e) {
