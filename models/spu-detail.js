@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: Jamboy
  * @Date: 2021-06-05 11:43:59
- * @LastEditTime: 2021-06-17 15:08:56
+ * @LastEditTime: 2021-07-09 13:54:09
  */
 /**
  * @name: spu-detail
@@ -20,13 +20,13 @@ class SpuDetail {
     /**
      * 根据ID获取商品详情信息
      */
-    static async getSpuDetail(id) {
-        this.res = await Http.request({
-            url: `${config.GoodsDetail}?id=${id}`
-        })
-        return this.res.data
+     static getDetail(id) {
+        return Http.request({
+            url: `spu/id/${id}/detail`
+        });
     }
 
+    
     static getIssue() {
         const issue = this.res.data.issue
         const text = issue.map(i => {

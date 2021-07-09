@@ -38,7 +38,7 @@ class Matrix {
      * 矩阵转秩
      */
     transpose() {
-        const desArr = [[],[],[]]
+        const desArr = []
         for (let j = 0; j < this.colsNum; j++) {
             desArr [j] = []
             for (let i = 0; i < this.rowsNum; i++) {

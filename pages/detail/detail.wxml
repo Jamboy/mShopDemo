@@ -9,20 +9,20 @@
 	 autoplay
 	>
 		<block
-		 wx:for="{{gallery}}"
+		 wx:for="{{spu.spu_img_list}}"
 		 wx:key="index"
 		>
 			<swiper-item>
 				<image
-				 class="img"
+				 class="top"
 				 mode="aspectFill"
-				 src="{{item.img_url}}"
+				 src="{{item.img}}"
 				/>
 			</swiper-item>
 		</block>
 	</swiper>
 	<!-- spu描述 -->
-	<udf-spu-description info="{{desc}}" />
+	<udf-spu-description info="{{spu}}" />
 	<!-- sku 选择toast -->
 	<view
 	 wx:if="{{!spec.noSpec}}"

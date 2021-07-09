@@ -3,12 +3,13 @@
     box-sizing: border-box;
     background-color: #ffffff;
     max-height: 1000rpx;
-    height: 600rpx;
     min-height: 700rpx;
+    padding-bottom: 100rpx;
 }
 
 .inner-container{
- padding: 40rpx;
+    padding: 30rpx 30rpx 0 30rpx;
+    /* padding: 40rpx; */
 }
 
 .sku-preview {

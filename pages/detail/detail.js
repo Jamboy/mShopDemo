@@ -30,9 +30,11 @@ Page({
   onLoad: async function (options) {
     const h = await getSystemAdaptHeightRpx(100)
     const pid = options.pid
-    this.initGoodsDetail(pid)
+    // this.initGoodsDetail(pid)
     console.log('-------------->商品详情页面加载 begin:----------->')
-    const spu = await this.getMockDetail(1) //无规格
+    const spu = await SpuDetail.getDetail(pid)
+
+    // const spu = await this.getMockDetail(1) //无规格
     // const spu = await this.getMockDetail(2)//含规格
     this.setData({
       spu,

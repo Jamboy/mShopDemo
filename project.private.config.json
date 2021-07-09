@@ -53,6 +53,12 @@
           "pathName": "pages/cart/cart",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/detail/detail",
+          "query": "pid=3",
+          "scene": null
         }
       ]
     }
