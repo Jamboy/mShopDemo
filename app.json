@@ -53,6 +53,7 @@
     "mp-form": "weui-miniprogram/form/form",
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell",
+    "l-slide-view": "miniprogram_npm/lin-ui/slide-view/index",
     "l-grid": "miniprogram_npm/lin-ui/grid/index",
     "l-grid-item": "miniprogram_npm/lin-ui/grid-item/index",
     "l-price": "/miniprogram_npm/lin-ui/price/index",
