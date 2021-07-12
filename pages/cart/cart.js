@@ -2,10 +2,11 @@
  * @Description: 购物车
  * @Author: Jamboy
  * @Date: 2021-06-05 11:43:59
- * @LastEditTime: 2021-07-09 15:41:11
+ * @LastEditTime: 2021-07-12 13:50:45
  */
 // pages/cart/cart.js
 import { Cart } from '../../models/cart'
+const cart = new Cart()
 
 Page({
   /**
@@ -13,18 +14,18 @@ Page({
    */
   data: {
     cartItems: [],
+    isEmpty: false,
+    allChecked: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
-  },
+  onLoad: function (options) {},
 
   onShow: function () {
-    const cart = new Cart()
-    const cartItems = cart.getALlCartItemFromLocal().items
+    const cartItems = cart.getAllCartItemFromLocal().items
+    console.log('cartItems: ', cartItems)
     if (cart.isEmpty()) {
       this.empty()
       return
@@ -34,6 +35,7 @@ Page({
       cartItems,
     })
     this.notEmpty()
+    this.isAllChecked()
   },
 
   empty() {
@@ -53,6 +55,35 @@ Page({
 
     wx.showTabBarRedDot({
       index: 2,
+    })
+  },
+
+  isAllChecked() {
+    const allChecked = cart.isAllChecked()
+    console.log('allChecked: ', allChecked)
+    this.setData({
+      allChecked,
+    })
+  },
+
+  onSingleCheck(e) {
+    console.log('onSingleCheck: ', e)
+    this.isAllChecked()
+  },
+
+  onDeleteItem(e) {
+    const skuId = e.detail
+    console.log('skuId: ', skuId)
+    this.isAllChecked()
+  },
+
+  onCheckAll(e) {
+    const { checked } = e.detail
+    console.log('onCheckAll: ', checked)
+    cart.checkAll(checked)
+    const cartItems = cart.getAllCartItemFromLocal().items
+    this.setData({
+      cartItems,
     })
   },
 })

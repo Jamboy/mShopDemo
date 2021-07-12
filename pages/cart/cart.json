@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "u-cart-item": "/components/cart-item/index"
+    "u-cart-item": "/components/cart-item/index",
+    "u-empty": "/components/empty/index",
+    "u-checkbox": "/components/checkBox/index"
   }
 }
