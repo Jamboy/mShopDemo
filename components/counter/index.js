@@ -1,3 +1,9 @@
+/*
+ * @Description: 
+ * @Author: Jamboy
+ * @Date: 2021-07-08 16:17:03
+ * @LastEditTime: 2021-07-12 10:22:49
+ */
 // components/counter/index.js
 import {Cart} from "../models/cart";
 
@@ -19,6 +25,18 @@ Component({
         min: {
             type: Number,
             value: Cart.SKU_MIN_COUNT
+        }
+    },
+
+    observers: {
+        min: function (min) {
+            if(!min)
+            {
+                return
+            }
+            this.setData({
+                _min: min
+            })
         }
     },
 

@@ -3,6 +3,6 @@
            l-symbol-class="all-background font-color"
            l-disabled-class="all-background"
            l-class="container"
-           min="{{min}}" max="{{max}}" count="{{count}}"
+           min="{{_min}}" max="{{max}}" count="{{count}}"
            bind:linout="onOverStep"
 ></l-counter>
