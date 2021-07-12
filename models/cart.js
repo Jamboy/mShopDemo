@@ -2,7 +2,7 @@
  * @Description: 购物车类 单例
  * @Author: Jamboy
  * @Date: 2021-06-17 16:28:25
- * @LastEditTime: 2021-07-12 13:49:00
+ * @LastEditTime: 2021-07-12 14:21:02
  */
 
 class Cart {
@@ -48,6 +48,12 @@ class Cart {
     const oldItemIndex = this._findEqualItemIndex(skuId)
     const cartData = this._getCartData()
     cartData.items.splice(oldItemIndex, 1)
+    this._refreshStorage()
+  }
+
+  alterItem(skuId,count) {
+    let oldItem = this.findEqualItem(skuId)
+    oldItem.count = count
     this._refreshStorage()
   }
 

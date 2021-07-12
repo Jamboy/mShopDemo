@@ -59,6 +59,12 @@
           "pathName": "pages/detail/detail",
           "query": "pid=3",
           "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/cart/cart",
+          "query": "",
+          "scene": null
         }
       ]
     }

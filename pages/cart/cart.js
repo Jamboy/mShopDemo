@@ -2,7 +2,7 @@
  * @Description: 购物车
  * @Author: Jamboy
  * @Date: 2021-06-05 11:43:59
- * @LastEditTime: 2021-07-12 13:50:45
+ * @LastEditTime: 2021-07-12 14:05:27
  */
 // pages/cart/cart.js
 import { Cart } from '../../models/cart'
@@ -81,9 +81,9 @@ Page({
     const { checked } = e.detail
     console.log('onCheckAll: ', checked)
     cart.checkAll(checked)
-    const cartItems = cart.getAllCartItemFromLocal().items
+    // const cartItems = cart.getAllCartItemFromLocal().items
     this.setData({
-      cartItems,
+      cartItems: this.data.cartItems
     })
   },
 })

@@ -2,7 +2,7 @@
  * @Description:
  * @Author: Jamboy
  * @Date: 2021-07-08 16:17:03
- * @LastEditTime: 2021-07-12 11:49:24
+ * @LastEditTime: 2021-07-12 14:16:32
  */
 // components/cart-item/index.js
 import { parseSpecValue } from '../../utils/sku'
@@ -62,6 +62,11 @@ Component({
       this.properties.cartItem.checked = checked
       cart.checkItem(this.properties.cartItem.skuId)
       this.triggerEvent('itemcheck')
+    },
+
+    onSelectCount(e) {
+      const { count } = e.detail
+      cart.alterItem(this.properties.cartItem.skuId,count)
     },
   },
 })
