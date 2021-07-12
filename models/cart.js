@@ -2,7 +2,7 @@
  * @Description: 购物车类 单例
  * @Author: Jamboy
  * @Date: 2021-06-17 16:28:25
- * @LastEditTime: 2021-06-29 10:43:39
+ * @LastEditTime: 2021-07-12 13:49:00
  */
 
 class Cart {
@@ -22,7 +22,7 @@ class Cart {
     return this
   }
 
-  getALlCartItemFromLocal() {
+  getAllCartItemFromLocal() {
     return this._getCartData()
   }
 
@@ -129,6 +129,33 @@ class Cart {
     }
     wx.setStorageSync(Cart.STORAGE_KEY, cartData)
     return cartData
+  }
+
+  static isSoldOut(item) {
+    return item.sku.stock === 0
+  }
+
+  static isOnline(item) {
+    return item.sku.online
+  }
+
+  checkItem(skuId) {
+    const oldItem = this.findEqualItem(skuId)
+    oldItem.checked = !oldItem.checked
+    this._refreshStorage()
+  }
+
+  isAllChecked() {
+    const items = this._getCartData().items
+    return items.find((item) => item.checked === false) ? false : true
+  }
+
+  checkAll(checked) {
+    const items = this._getCartData().items
+    items.forEach((item) => {
+      item.checked = checked
+    })
+    this._refreshStorage()
   }
 }
 

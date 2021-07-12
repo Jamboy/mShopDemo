@@ -1,26 +1,32 @@
+/*
+ * @Description:
+ * @Author: Jamboy
+ * @Date: 2021-07-09 11:47:57
+ * @LastEditTime: 2021-07-12 10:01:24
+ */
 //价格处理
 
 function mainPrice(price, discountPrice) {
-    if (price > discountPrice) {
-        return {
-            price: discountPrice,
-            display: true
-        }
-    }
+  if (price > discountPrice) {
     return {
-        price: price,
-        display:true
+      price: discountPrice,
+      display: true,
     }
+  }
+  return {
+    price: price,
+    display: true,
+  }
 }
 
 function slashedPrice(price, discountPrice) {
-    if (price > discountPrice) {
-        return price
-    }
-    return discountPrice
+  if (price > discountPrice) {
+    return price
+  }
+  return discountPrice
 }
 
 module.exports = {
-    mainPrice: mainPrice(),
-    slashedPrice: slashedPrice()
+  mainPrice: mainPrice,
+  slashedPrice: slashedPrice,
 }
