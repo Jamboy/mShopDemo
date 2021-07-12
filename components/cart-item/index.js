@@ -2,7 +2,7 @@
  * @Description:
  * @Author: Jamboy
  * @Date: 2021-07-08 16:17:03
- * @LastEditTime: 2021-07-12 14:16:32
+ * @LastEditTime: 2021-07-12 15:11:33
  */
 // components/cart-item/index.js
 import { parseSpecValue } from '../../utils/sku'
@@ -67,6 +67,9 @@ Component({
     onSelectCount(e) {
       const { count } = e.detail
       cart.alterItem(this.properties.cartItem.skuId,count)
+      this.triggerEvent('countfloat')
     },
+
+    
   },
 })

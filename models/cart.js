@@ -2,9 +2,10 @@
  * @Description: 购物车类 单例
  * @Author: Jamboy
  * @Date: 2021-06-17 16:28:25
- * @LastEditTime: 2021-07-12 14:21:02
+ * @LastEditTime: 2021-07-12 16:46:51
  */
 
+import { Sku } from '../models/sku'
 class Cart {
   static SKU_MIN_COUNT = 1 // 最小
   static SKU_MAX_COUNT = 77 //单个商品最多买多少个
@@ -24,6 +25,58 @@ class Cart {
 
   getAllCartItemFromLocal() {
     return this._getCartData()
+  }
+
+  async getAllCartItemFromServe() {
+    this
+    const cartData = this._getCartData()
+    if (cartData.items.length === 0) {
+      return null
+    }
+    const skuIds = this.getSkuIds()
+    const serverData = await Sku.getSkuByIds(skuIds)
+    this._refreshByServerData(serverData)
+    this._refreshStorage()
+  }
+
+  _refreshByServerData(serverData) {
+    const cartData = this._getCartData()
+    cartData.items.forEach((item) => {
+      this._setLatestItem(item, serverData)
+    })
+  }
+
+  _setLatestItem(item, serverData) {
+    let removed = true
+    for (let sku of serverData) {
+      if (sku.id === item.skuId) {
+        removed = false
+        item.sku = sku
+        break
+      }
+    }
+    if (removed) {
+      item.sku.online = false
+    }
+  }
+
+  getSkuIds() {
+    const cartData = this._getCartData()
+    if (cartData.items.length === 0) {
+      return []
+    }
+    return cartData.items.map((item) => item.skuId)
+  }
+
+  getCheckedItems() {
+    const cartItems = this._getCartData().items
+    const checkedItems = []
+    cartItems.forEach((item) => {
+      if (item.checked) {
+        checkedItems.push(item)
+      }
+    })
+    return checkedItems
   }
 
   isEmpty() {
@@ -51,9 +104,18 @@ class Cart {
     this._refreshStorage()
   }
 
-  alterItem(skuId,count) {
+  alterItem(skuId, count) {
     let oldItem = this.findEqualItem(skuId)
+    if (!oldItem) {
+      console.error('更新CartItem找不到')
+    }
+    if (count < 1) {
+      console.error('更新数量不能小于0')
+    }
     oldItem.count = count
+    if (oldItem.count >= Cart.SKU_MAX_COUNT) {
+      oldItem.count = Cart.SKU_MAX_COUNT
+    }
     this._refreshStorage()
   }
 
@@ -162,6 +224,17 @@ class Cart {
       item.checked = checked
     })
     this._refreshStorage()
+  }
+
+  calculateTotal() {
+    let total = 0
+    const items = this._getCartData().items
+    items.forEach((item) => {
+      if (item.checked) {
+        total += item.count * item.sku.price
+      }
+    })
+    return total
   }
 }
 
