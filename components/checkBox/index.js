@@ -1,10 +1,16 @@
+/*
+ * @Description: 
+ * @Author: Jamboy
+ * @Date: 2021-07-08 16:17:03
+ * @LastEditTime: 2021-07-12 13:41:28
+ */
 // components/checkBox/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    checkBox: Boolean,
+    checked: Boolean,
   },
 
   /**

@@ -4,10 +4,10 @@
  class="container {{checked ? 'bg-checked' : 'bg-unchecked'}}"
 >
 	<l-icon
-	 wx:if="{{checked}}"
+	 wx:if="{{checked?true:false}}"
 	 name="check"
 	 size="28"
-	 l-class="jambo"
+	 l-class="sleeve"
 	/>
 </view>
 
