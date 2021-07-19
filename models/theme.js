@@ -2,7 +2,7 @@
  * @Description: 获取首页及各位置的数据
  * @Author: Jamboy
  * @Date: 2021-07-08 17:02:13
- * @LastEditTime: 2021-07-09 13:36:13
+ * @LastEditTime: 2021-07-19 15:58:51
  */
 
 import { config } from '../config/config'
@@ -10,6 +10,14 @@ import { Http } from '../utils/http'
 
 class Theme {
   homeData = null
+  static locationA = 't-1'
+  static locationE = 't-2'
+  static locationF = 't-3'
+  static locationH = 't-4'
+
+  themes = []
+
+  static forYou = 't-6'
 
   /**
    * @description: 获取首页数据集
@@ -17,81 +25,46 @@ class Theme {
    * @return {*}
    */
   async getThemes() {
-    const res = await Http.request({
+    const names = `${Theme.locationA},${Theme.locationE},${Theme.locationF},${Theme.locationH}`
+    this.themes = await Http.request({
       url: `theme/by/names`,
+      data: {
+        names,
+      },
     })
-
-    // this.homeData = res.data
-    console.log(
-      '-------------->开始获取首页数据 theme.getHomeData begin:----------->'
-    )
-    console.log(res)
-    // console.log(this.homeData)
-    console.log('-------------->结束获取首页数据 end  :----------->')
   }
 
-  /**
-   * @description: 获取Banners
-   * @param {*}
-   * @return {*}
-   */
-  getBanners() {
-    return this.homeData.banner
-  }
-
-  /**
-   * @description: 获取新品信息
-   * @return {*}
-   */
-  getNewGoodList() {
-    return this.homeData.newGoodsList
-  }
-
-  /**
-   * @returns {*} 获取所有专题
-   */
-  getTopicList() {
-    return this.homeData.topicList
-  }
-  /**
-   * @description: 获取首页第一屏数据
-   * @param {*}
-   * @return {*}
-   */
   getHomeLocationA() {
-    return this.getBanners().find((t) => t.id === 1)
+    return this.themes.find((t) => t.name === Theme.locationA)
   }
 
-  /**
-   * @description: 获取首页第二屏数据
-   * @param {*}
-   * @return {*}
-   */
-  getHomeLocationB() {
-    return this.getBanners()
+  getHomeLocationE() {
+    return this.themes.find((t) => t.name === Theme.locationE)
   }
 
-  /**
-   * 获取第四个专题图片
-   */
-  getHomeLocationD() {
-    const topicOne = 0
-    return this.getTopicList().find((t) => t.topic_category_id === topicOne)
-  }
-
-  /**
-   * @returns {*} 品牌List
-   */
-  getBrandList() {
-    return this.homeData.brandList
-  }
-
-  /**
-   * 获取第六个专题图片
-   */
   getHomeLocationF() {
-    const topicTwo = 1
-    return this.getTopicList().find((t) => t.topic_category_id === topicTwo)
+    return this.themes.find((t) => t.name === Theme.locationF)
+  }
+
+  getHomeLocationH() {
+    return this.themes.find((t) => t.name === Theme.locationH)
+  }
+
+  static getHomeLocationESpu() {
+    return Theme.getThemeSpuByName(Theme.locationE)
+  }
+
+  static getThemeSpuByName(name) {
+    console.log(name)
+    return Http.request({
+      url: `theme/name/${name}/with_spu`,
+    })
+  }
+
+  static getForYou() {
+    return Http.request({
+      url: `theme/name/${this.forYou}/with_spu`,
+    })
   }
 }
 

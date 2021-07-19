@@ -8,11 +8,13 @@
 	 class="container"
 	 slot="content"
 	>
-		<!-- <view class="banner-container">
+		<view class="banner-container">
 			<image
 			 bind:load="onImgLoad"
 			 class="themeA"
-			 src="{{themeA.image_url}}"
+			 src="{{themeA.entrance_img}}"
+			 data-tname="t-1"
+			 bind:tap="onGoToTheme"
 			/>
 		</view>
 		<view>
@@ -24,13 +26,16 @@
 			 duration="{{500}}"
 			>
 				<block
-				 wx:for="{{bannersB}}"
+				 wx:for="{{bannersB.items}}"
 				 wx:key="index"
 				>
 					<swiper-item>
 						<image
+						 data-type="{{item.type}}"
+						 data-keyword="{{item.keyword}}"
+						 bind:tap="onGoToBanner"
 						 class="swiper"
-						 src="{{item.image_url}}"
+						 src="{{item.img}}"
 						/>
 					</swiper-item>
 				</block>
@@ -43,7 +48,7 @@
 		/>
 		<udf-spu-topic topicD="{{topicD}}" />
 		<udf-brand-list brand="{{brandList}}" />
-		<udf-spu-topic topicD="{{topicF}}" /> -->
+		<udf-spu-topic topicD="{{topicF}}" />
 		<view class="spu-bottom-container">
 			<text class="bottom-title">热卖·榜单</text>
 			<l-water-flow generic:l-water-flow-item="udf-spu-preview" />

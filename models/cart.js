@@ -5,7 +5,8 @@
  * @LastEditTime: 2021-07-12 16:46:51
  */
 
-import { Sku } from '../models/sku'
+import {Sku} from '../models/sku'
+
 class Cart {
   static SKU_MIN_COUNT = 1 // 最小
   static SKU_MAX_COUNT = 77 //单个商品最多买多少个
@@ -238,4 +239,4 @@ class Cart {
   }
 }
 
-export { Cart }
+export {Cart}

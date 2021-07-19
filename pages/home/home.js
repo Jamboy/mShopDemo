@@ -2,11 +2,12 @@
  * @Description: 首页
  * @Author: Jamboy
  * @Date: 2021-02-24 14:19:50
- * @LastEditTime: 2021-07-08 18:31:18
+ * @LastEditTime: 2021-07-19 16:16:13
  */
 import {Category} from "../../models/category";
 import {Theme} from "../../models/theme";
 import {SpuPaging} from "../../models/spu-paging";
+import { Banner } from "../../models/banner"
 
 // TODO add token verify
 
@@ -31,7 +32,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad(options) {
-        // this.initAllData()
+        this.initAllData()
         this.initBottomSpuList()
     },
 
@@ -41,18 +42,20 @@ Page({
      */
     async initAllData() {
         const theme = new Theme();
-        await theme.getHomeData();//获取首页数据
-        // const themeA = theme.getHomeLocationA(); //获取首页第一个topic
-        // const bannersB = theme.getHomeLocationB();//获取首页第二个banners
-        // const gridCategory = await Category.getGridCategory(); //获取首页分类
+        
+        await theme.getThemes();//获取首页数据
+        const themeA = theme.getHomeLocationA(); //获取首页第一个topic
+        const bannersB = await Banner.getHomeLocationB();//获取首页第二个banners
+        const gridCategory = await Category.getHomeLocationC() //获取首页分类
+        console.log('gridCategory: ', gridCategory);
         // const newGoodList = theme.getNewGoodList();//获取首页上新
         // const topicD = theme.getHomeLocationD();//获取首页第二个topic
         // const brandList = theme.getBrandList();//获取首页品牌直供
         // const topicF = theme.getHomeLocationF()//获取首页第三个topic
         this.setData({
-            // themeA,
-            // bannersB,
-            // gridCategory,
+            themeA,
+            bannersB,
+            gridCategory,
             // newGoodList,
             // topicD,
             // brandList,
